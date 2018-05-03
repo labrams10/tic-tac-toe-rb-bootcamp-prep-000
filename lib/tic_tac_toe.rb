@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 require 'pry'
+=======
+>>>>>>> 26fa067ae0370556ce2dba14b426738a7da52e59
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -9,6 +12,7 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [6,4,2],
   ]
+end
 
   def display_board
     line = "   |   |   "
@@ -31,7 +35,11 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+<<<<<<< HEAD
 def move(board, index, character)
+=======
+def move(board, index, character = "X")
+>>>>>>> 26fa067ae0370556ce2dba14b426738a7da52e59
   board[index] = character
 end
 
@@ -60,7 +68,7 @@ def winning_combinations(board)
 
     (board[win_combo[0]] == "X" && board[win_combo[1]] == "X" && board[win_combo[2]] == "X") ||  (board[win_combo[0]] == "O" && board[win_combo[1]] == "O" && board[win_combo[2]] == "O")
 end
-end
+
 def full?(board)
     !board.any? do |board_position|
       board_position == " "
@@ -70,10 +78,16 @@ end
 def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
+<<<<<<< HEAD
   character = current_player(board)
   index = input_to_index(user_input)
   if valid_move?(board, index)
     move(board, index, character)
+=======
+  index = input_to_index(user_input)
+  if valid_move?(board, index)
+    move(board, index)
+>>>>>>> 26fa067ae0370556ce2dba14b426738a7da52e59
     display_board(board)
   else
     turn(board)
@@ -91,9 +105,16 @@ def turn_count(board)
 end
 
 def current_player(board)
+<<<<<<< HEAD
    if turn_count(board).even?
      "X"
    else
+=======
+  count = turn_count(board)
+    if count.even?
+     "X"
+    elsif count.odd?
+>>>>>>> 26fa067ae0370556ce2dba14b426738a7da52e59
      "O"
   end
 end
